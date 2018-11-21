@@ -1,19 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:fancy="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	tools:context=".Activity_main">
 
-	<TextView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="Hello World!"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintLeft_toLeftOf="parent"
-		app:layout_constraintRight_toRightOf="parent"
-		app:layout_constraintTop_toTopOf="parent"/>
 
-</android.support.constraint.ConstraintLayout>
+	<TextView
+		android:id="@+id/status"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="15dp"
+		android:gravity="center"
+		android:padding="5dp"
+		android:text="Status"
+		android:textColor="@android:color/black"/>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/status"
+		android:layout_marginTop="25dp"
+		android:gravity="center"
+		android:orientation="vertical">
+
+		<mehdi.sakout.fancybuttons.FancyButton
+			android:id="@+id/start"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="10dp"
+			android:paddingLeft="20dp"
+			android:paddingTop="10dp"
+			android:paddingRight="20dp"
+			android:paddingBottom="10dp"
+			fancy:fb_borderColor="#FFFFFF"
+			fancy:fb_borderWidth="1dp"
+			fancy:fb_defaultColor="#7ab800"
+			fancy:fb_focusColor="#9bd823"
+			fancy:fb_iconPosition="left"
+			fancy:fb_radius="30dp"
+			fancy:fb_text="Start Motor"
+			fancy:fb_textColor="#FFFFFF"/>
+
+		<mehdi.sakout.fancybuttons.FancyButton
+			android:id="@+id/speed_up"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="10dp"
+			android:paddingLeft="20dp"
+			android:paddingTop="10dp"
+			android:paddingRight="20dp"
+			android:paddingBottom="10dp"
+			fancy:fb_borderColor="#FFFFFF"
+			fancy:fb_borderWidth="1dp"
+			fancy:fb_defaultColor="@android:color/holo_blue_dark"
+			fancy:fb_focusColor="@android:color/holo_blue_dark"
+			fancy:fb_iconPosition="left"
+			fancy:fb_radius="30dp"
+			fancy:fb_text="Speed UP"
+			fancy:fb_textColor="#FFFFFF"/>
+
+		<mehdi.sakout.fancybuttons.FancyButton
+			android:id="@+id/speed_down"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="10dp"
+			android:paddingLeft="20dp"
+			android:paddingTop="10dp"
+			android:paddingRight="20dp"
+			android:paddingBottom="10dp"
+			fancy:fb_borderColor="#FFFFFF"
+			fancy:fb_borderWidth="1dp"
+			fancy:fb_defaultColor="@android:color/holo_blue_dark"
+			fancy:fb_focusColor="@android:color/holo_blue_dark"
+			fancy:fb_iconPosition="left"
+			fancy:fb_radius="30dp"
+			fancy:fb_text="Speed Down"
+			fancy:fb_textColor="#FFFFFF"/>
+
+		<TextView
+			android:id="@+id/status2"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_margin="15dp"
+			android:gravity="center"
+			android:padding="5dp"
+			android:text="Device Status"
+			android:textColor="@android:color/black"/>
+	</LinearLayout>
+</RelativeLayout>
