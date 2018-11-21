@@ -45,6 +45,24 @@
 			fancy:fb_textColor="#FFFFFF"/>
 
 		<mehdi.sakout.fancybuttons.FancyButton
+			android:id="@+id/stop"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="10dp"
+			android:paddingLeft="20dp"
+			android:paddingTop="10dp"
+			android:paddingRight="20dp"
+			android:paddingBottom="10dp"
+			fancy:fb_borderColor="#FFFFFF"
+			fancy:fb_borderWidth="1dp"
+			fancy:fb_defaultColor="@android:color/holo_red_dark"
+			fancy:fb_focusColor="@android:color/holo_red_dark"
+			fancy:fb_iconPosition="left"
+			fancy:fb_radius="30dp"
+			fancy:fb_text="Stop Motor"
+			fancy:fb_textColor="#FFFFFF"/>
+
+		<mehdi.sakout.fancybuttons.FancyButton
 			android:id="@+id/speed_up"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
