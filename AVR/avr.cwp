@@ -1,7 +1,7 @@
 [CodeWizard]
 Toolset=AVR
 [Chip]
-Type=ATmega32
+Type=ATmega16
 CPUClock=8
 XTALDivEnabled=0
 XTALDivValue=2
@@ -26,11 +26,11 @@ PLLVCO=2
 TriggerLevel=0
 InterruptEnabled=0
 [Ports]
-DDR0=15
+DDR0=0
 PORT0=0
-DDR1=3
+DDR1=1
 PORT1=0
-DDR2=15
+DDR2=0
 PORT2=0
 DDR3=0
 PORT3=0
@@ -428,7 +428,7 @@ DS1820Many=0
 [2Wire]
 2WireEnabled=0
 2WireMode=0
-SCLBitRate=62
+SCLBitRate=100
 SlaveAddress=0
 MatchAnySlaveAddress=0
 RxBufferSize=1
@@ -481,7 +481,23 @@ PhaseSegment2=0
 SamplePoints=0
 CANTimerClock=0
 [AlphanumericLCD]
-Enabled=0
+Enabled=1
+Controller=0
+AlphanumericLCDCharsPerLineIndex=2
+AlphanumericLCDRSPort=2
+AlphanumericLCDRSBit=0
+AlphanumericLCDRDPort=2
+AlphanumericLCDRDBit=1
+AlphanumericLCDENPort=2
+AlphanumericLCDENBit=2
+AlphanumericLCDDATA4Port=2
+AlphanumericLCDDATA4Bit=4
+AlphanumericLCDDATA5Port=2
+AlphanumericLCDDATA5Bit=5
+AlphanumericLCDDATA6Port=2
+AlphanumericLCDDATA6Bit=6
+AlphanumericLCDDATA7Port=2
+AlphanumericLCDDATA7Bit=7
 [GraphicLCD]
 GLCDDisplayIndex=0
 [ResistiveTouchscreen]
@@ -495,9 +511,9 @@ DS1302TCEnabled=0
 DS1302Diodes=0
 DS1302ChargeResistor=0
 [ProjectInformation]
-ProjectName=DCM Controller
-ProjectVersion=1.0
-ProjectDate=2018-11-28
-ProjectAuthor=Arash Hatami
+ProjectName=
+ProjectVersion=
+ProjectDate=2018-12-04
+ProjectAuthor=
 ProjectCompany=
 CommentLines=0
