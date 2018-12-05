@@ -1,3 +1,4 @@
 *.pdsbak
 *.c~
 *.cw~
+AVR/Debug
