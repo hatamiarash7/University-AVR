@@ -1,11 +1,14 @@
 package ir.hatamiarash.dcmotorcontroller;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
+
+import com.github.anastr.speedviewlib.PointerSpeedometer;
 
 import app.akexorcist.bluetotohspp.library.BluetoothSPP;
 import app.akexorcist.bluetotohspp.library.BluetoothState;
@@ -21,8 +24,6 @@ public class Activity_main extends AppCompatActivity {
 	
 	@BindView(R.id.status)
 	TextView status;
-	@BindView(R.id.status2)
-	TextView status2;
 	@BindView(R.id.start)
 	FancyButton start;
 	@BindView(R.id.stop)
@@ -31,6 +32,8 @@ public class Activity_main extends AppCompatActivity {
 	FancyButton speed_up;
 	@BindView(R.id.speed_down)
 	FancyButton speed_down;
+	@BindView(R.id.pointerSpeedometer)
+	PointerSpeedometer speedometer;
 	
 	@OnClick(R.id.start)
 	void startMotor() {
@@ -50,30 +53,33 @@ public class Activity_main extends AppCompatActivity {
 	@OnClick(R.id.speed_down)
 	void speedDown() {
 		sendCode("4");
-		
 	}
 	
-	
+	@SuppressLint("SetTextI18n")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		ButterKnife.bind(this);
 		
+		speedometer.setMinSpeed(0);
+		speedometer.setMaxSpeed(255);
+		speedometer.setTrembleData(0, 0);
+		speedometer.speedTo(55);
+		
 		bluetooth = new BluetoothSPP(this);
 		
 		bluetooth.setBluetoothConnectionListener(new BluetoothSPP.BluetoothConnectionListener() {
 			public void onDeviceConnected(String name, String address) {
-				status2.setText("Device Connected");
-				setStatus("Connected");
+				setStatus("Device Connected");
 			}
 			
 			public void onDeviceDisconnected() {
-				status2.setText("Device Disconnected");
+				setStatus("Device Disconnected");
 			}
 			
 			public void onDeviceConnectionFailed() {
-				status2.setText("Connection Failed");
+				setStatus("Connection Failed");
 			}
 		});
 		
