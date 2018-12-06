@@ -35,24 +35,45 @@ public class Activity_main extends AppCompatActivity {
 	@BindView(R.id.pointerSpeedometer)
 	PointerSpeedometer speedometer;
 	
+	int speed = 160;
+	int power = 0;
+	
 	@OnClick(R.id.start)
 	void startMotor() {
 		sendCode("1");
+		power = 1;
 	}
 	
 	@OnClick(R.id.stop)
 	void stopMotor() {
+		speed = 160;
+		speedometer.speedTo(speed);
 		sendCode("2");
+		power = 0;
 	}
 	
 	@OnClick(R.id.speed_up)
 	void speedUP() {
-		sendCode("3");
+		if (power == 1) {
+			if (speed < 240)
+				speed += 10;
+			else
+				speed = 250;
+			speedometer.speedTo(speed);
+			sendCode("3");
+		}
 	}
 	
 	@OnClick(R.id.speed_down)
 	void speedDown() {
-		sendCode("4");
+		if (power == 1) {
+			if (speed > 160)
+				speed -= 10;
+			else
+				speed = 160;
+			speedometer.speedTo(speed);
+			sendCode("4");
+		}
 	}
 	
 	@SuppressLint("SetTextI18n")
@@ -62,10 +83,8 @@ public class Activity_main extends AppCompatActivity {
 		setContentView(R.layout.activity_main);
 		ButterKnife.bind(this);
 		
-		speedometer.setMinSpeed(0);
-		speedometer.setMaxSpeed(255);
 		speedometer.setTrembleData(0, 0);
-		speedometer.speedTo(55);
+		speedometer.speedTo(160);
 		
 		bluetooth = new BluetoothSPP(this);
 		
@@ -117,7 +136,7 @@ public class Activity_main extends AppCompatActivity {
 	
 	private void setStatus(String text) {
 		status.setText(text);
-		Log.w("BLUETOOTH", text);
+		Log.w("Bluetooth", text);
 	}
 	
 	private void sendCode(String text) {

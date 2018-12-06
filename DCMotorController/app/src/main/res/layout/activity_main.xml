@@ -2,6 +2,7 @@
 <RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:fancy="http://schemas.android.com/apk/res-auto"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
@@ -37,6 +38,8 @@
 
 		<com.github.anastr.speedviewlib.PointerSpeedometer
 			android:id="@+id/pointerSpeedometer"
+			app:sv_minSpeed="160"
+			app:sv_maxSpeed="250"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"/>
 
