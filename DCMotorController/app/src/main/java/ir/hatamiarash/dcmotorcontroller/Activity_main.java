@@ -35,7 +35,7 @@ public class Activity_main extends AppCompatActivity {
 	@BindView(R.id.pointerSpeedometer)
 	PointerSpeedometer speedometer;
 	
-	int speed = 160;
+	int speed = 40;
 	int power = 0;
 	
 	@OnClick(R.id.start)
@@ -46,7 +46,7 @@ public class Activity_main extends AppCompatActivity {
 	
 	@OnClick(R.id.stop)
 	void stopMotor() {
-		speed = 160;
+		speed = 40;
 		speedometer.speedTo(speed);
 		sendCode("2");
 		power = 0;
@@ -67,10 +67,10 @@ public class Activity_main extends AppCompatActivity {
 	@OnClick(R.id.speed_down)
 	void speedDown() {
 		if (power == 1) {
-			if (speed > 160)
+			if (speed > 40)
 				speed -= 10;
 			else
-				speed = 160;
+				speed = 40;
 			speedometer.speedTo(speed);
 			sendCode("4");
 		}
@@ -84,7 +84,7 @@ public class Activity_main extends AppCompatActivity {
 		ButterKnife.bind(this);
 		
 		speedometer.setTrembleData(0, 0);
-		speedometer.speedTo(160);
+		speedometer.speedTo(40);
 		
 		bluetooth = new BluetoothSPP(this);
 		
@@ -142,7 +142,7 @@ public class Activity_main extends AppCompatActivity {
 	private void sendCode(String text) {
 		bluetooth.send(text, true);
 		try {
-			Thread.sleep(500);
+			Thread.sleep(100);
 		} catch (InterruptedException ignore) {
 		}
 	}

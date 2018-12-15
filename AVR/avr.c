@@ -1,6 +1,6 @@
 /*******************************************************
 Project : DC Motol Controller
-Version : 1.0
+Version : 2.0
 Date    : 2018-12-04
 Author  : A.Hatami
 Company : Ateriad CGCR 
@@ -64,8 +64,8 @@ void main(void)
                 lcd_clear();
                 lcd_gotoxy(0, 0);
                 lcd_puts("Power On");
-                OCR0 = 160;
-                sprintf(duty_cycle, "Speed : %d", OCR0);
+                OCR0 = 40;
+                sprintf(duty_cycle, "Speed : %d ", OCR0);
                 lcd_gotoxy(0, 1);
                 lcd_puts(duty_cycle); 
                 puts("Power On");
@@ -81,34 +81,40 @@ void main(void)
                 lcd_gotoxy(0, 0);
                 lcd_puts("Power Off");  
                 OCR0 = 0;   
-                sprintf(duty_cycle, "Speed : %d", 0);
+                sprintf(duty_cycle, "Speed : %d ", 0);
                 lcd_gotoxy(0, 1);
                 lcd_puts(duty_cycle); 
-                puts(duty_cycle); 
+                puts("Power Off"); 
                 status = 0;
             }
         }
         
         if(command == '3')
-        {                   
-            if(OCR0 < 240) 
-                OCR0 = OCR0 + 10;
-            else
-                OCR0 = 250;
-            sprintf(duty_cycle, "Speed : %d", OCR0);
-            lcd_gotoxy(0, 1);
-            lcd_puts(duty_cycle); 
+        {   
+            if(status == 1){                
+                if(OCR0 < 240) 
+                    OCR0 = OCR0 + 10;
+                else
+                    OCR0 = 250;
+                sprintf(duty_cycle, "Speed : %d ", OCR0);
+                lcd_gotoxy(0, 1);
+                lcd_puts(duty_cycle);
+                puts(duty_cycle);
+            } 
         }
         
         if(command == '4')
-        {        
-            if(OCR0 > 160) 
-                OCR0 = OCR0 - 10;
-            else
-                OCR0 = 160;
-            sprintf(duty_cycle, "Speed : %d", OCR0);
-            lcd_gotoxy(0, 1);
-            lcd_puts(duty_cycle); 
+        {       
+            if(status == 1){ 
+                if(OCR0 > 50) 
+                    OCR0 = OCR0 - 10;
+                else
+                    OCR0 = 40;
+                sprintf(duty_cycle, "Speed : %d ", OCR0);
+                lcd_gotoxy(0, 1);
+                lcd_puts(duty_cycle); 
+                puts(duty_cycle);
+            } 
         }
     }
 }
